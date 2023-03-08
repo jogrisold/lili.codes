@@ -1,7 +1,7 @@
 
 const express = require("express");
 const bp = require('body-parser');
-const sendResponse = require('./db/utils')
+const {sendResponse} = require('./db/utils');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
