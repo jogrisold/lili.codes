@@ -29,8 +29,9 @@ app.use((req, res, next)=> { //allow cross origin requests
   next();
 });
 
-app.use(bp.json())
-app.use(bp.urlencoded({extended:true}))
+app.use(bp.json());
+app.use(bp.urlencoded({extended:true}));
+app.use('/static', express.static(path.join('client/build')));
 
 // Create an endpoint to request bike station data
 app.get("/stations", getGBFS)
