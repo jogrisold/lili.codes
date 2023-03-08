@@ -66,7 +66,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 //app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve("client", "index.html"));
+  res.sendFile(path.resolve("build", "client", "index.html"));
 });
 //    res.status(404).json({
 //    status: 404,
