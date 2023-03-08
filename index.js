@@ -13,6 +13,7 @@ const { handleLogIn,
         updateUserRoutes, 
         updateUserSettings
     } = require("./db/user-handlers");
+const { dirname } = require("node:path");
 
 const PORT = process.env.PORT || 3001;
 
@@ -31,7 +32,7 @@ app.use((req, res, next)=> { //allow cross origin requests
 
 app.use(bp.json());
 app.use(bp.urlencoded({extended:true}));
-app.use('/static', express.static(path.join('client/build')));
+app.use('/static', express.static(path.join(__dirname, 'client/build')));
 
 // Create an endpoint to request bike station data
 app.get("/stations", getGBFS)
@@ -67,7 +68,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 //app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve("client","build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client","build", "index.html"));
 });
 //    res.status(404).json({
 //    status: 404,
