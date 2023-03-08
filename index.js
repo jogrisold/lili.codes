@@ -21,7 +21,7 @@ const app = express();
 /** Setting up server to accept cross-origin browser requests */
 app.use((req, res, next)=> { //allow cross origin requests
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "https://btb.herokuapp.com/");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", true);
   next();
@@ -62,12 +62,12 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 // Catch all endpoint
 
-//app.get("*", (res) => {
-   // res.status(404).json({
-   //status: 404,
-    //message: "Server endpoint does not exist",
-    //});
-//})
+app.get("*", (res) => {
+   res.status(404).json({
+   status: 404,
+    message: "Server endpoint does not exist",
+    });
+})
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
