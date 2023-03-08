@@ -2,6 +2,7 @@
 const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
+const path = require('node:path');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -65,7 +66,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 //app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  res.sendFile(path.resolve("build", "index.html"));
 });
 //    res.status(404).json({
 //    status: 404,
