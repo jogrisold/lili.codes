@@ -1,6 +1,7 @@
 
 const express = require("express");
 const bp = require('body-parser');
+const sendResponse = require('./db/utils')
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -62,12 +63,13 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 // Catch all endpoint
 
-app.get("*", (res) => {
-   res.status(404).json({
-   status: 404,
-    message: "Server endpoint does not exist",
-    });
-})
+app.get("*", sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
+
+//    res.status(404).json({
+//    status: 404,
+//     message: "Server endpoint does not exist",
+//     });
+// })
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
