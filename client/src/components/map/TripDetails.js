@@ -93,6 +93,7 @@ const TripDetails = () => {
     ) 
 }
 
+
 export default TripDetails;
 
 const TripDetailsInfo = styled.div`
