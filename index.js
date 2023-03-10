@@ -23,10 +23,12 @@ const app = express();
 
 /** Setting up server to accept cross-origin browser requests */
 app.use((req, res, next)=> { //allow cross origin requests
+  console.log("Request headers:", req.headers); // Debugging statement
+  
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
   console.log("Before setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://btb.ltd/");
   console.log("After setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
 
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

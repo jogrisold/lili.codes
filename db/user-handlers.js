@@ -68,7 +68,7 @@ const handleLogIn = async (req, res) => {
 //*************************************************************** */
 const handleSignUp = async (req, res) => {
    
-
+  const client = new MongoClient(MONGO_URI, options);
   let user = null;
   try {
     await client.connect();
