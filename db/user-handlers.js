@@ -24,7 +24,7 @@ const bcrypt = require("bcrypt");
 // Returns user data from the database on login
 //*************************************************************** */
 const handleLogIn = async (req, res) => {
-
+  const client = new MongoClient(MONGO_URI, options);
   let user = null;
 
   try {
@@ -120,7 +120,7 @@ const handleSignUp = async (req, res) => {
 // Updates user profile
 //*************************************************************** */
 const updateUserProfile = async (req, res) => {
-
+  const client = new MongoClient(MONGO_URI, options);
   const updatedUserProfile = req.body;
 
   try {
@@ -172,7 +172,7 @@ const updateUserProfile = async (req, res) => {
 // Updates user settings
 //*************************************************************** */
 const updateUserSettings = async (req, res) => {
-
+  const client = new MongoClient(MONGO_URI, options);
   const updatedUserSettings = req.body;
 
   try {
@@ -220,7 +220,7 @@ const updateUserSettings = async (req, res) => {
 // Adds route to user profile
 //*************************************************************** */
 const updateUserRoutes = async (req, res) => {
-
+  const client = new MongoClient(MONGO_URI, options);
   try {
     // Connect to client
     await client.connect();
@@ -267,7 +267,7 @@ const updateUserRoutes = async (req, res) => {
 // Retrieve user profile based on their id
 //*************************************************************** */
 const getUserProfile = async (req, res) => {
-
+  const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
     const user = await db.collection("users").findOne({ _id: req.params._id });
