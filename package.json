@@ -18,11 +18,10 @@
   },
   "scripts": {
     "client-install": "cd client && yarn",
-    "start": "concurrently \"cd server && yarn start\" \"cd client && yarn start\"",
     "server": "nodemon index.js",
     "client": "cd client && yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "cd client && yarn && yarn run build",
-    "heroku-postbuild": "yarn run build"
+    "heroku-postbuild": "yarn dev"
   }
 }
