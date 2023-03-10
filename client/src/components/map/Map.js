@@ -86,7 +86,9 @@ const Map = () => {
     // Retrieve stations from backend
     useEffect(() => {
         if (bikeDataRetrieved === false){
-        fetch('https://btb.herokuapp.com/stations')
+        fetch('https://btb.herokuapp.com/stations',{
+            mode: 'no-cors'
+        })
             .then((res) => {
                 if(!res.ok){
                     console.log(res);
