@@ -15,7 +15,7 @@ import Header from '../components/Header';
 import Profile from "../components/authentication/Profile/Profile";
 
 // required by mabox
-import mapboxgl from 'mapbox-gl' 
+import mapboxgl from '!mapbox-gl' 
 
 // my mapbox access token
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9ncmlzb2xkIiwiYSI6ImNsNnV2Nm1zbTIxemIzanRlYXltNnhjYW0ifQ.wneEVyaaMSgq9bm_gD-Eug';

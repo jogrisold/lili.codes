@@ -3,7 +3,7 @@ import{ useRef, useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 
 // required by mabox
-import mapboxgl from 'mapbox-gl'; 
+import mapboxgl from '!mapbox-gl'; 
 
 import NavSearch from "./NavSearch";
 import { UserContext } from "../UserContext";
