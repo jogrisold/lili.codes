@@ -41,7 +41,7 @@ const getPositionFromAddress = async (address) => {
 };
 
 const requestPositionFromAddress = async (req, res) => {
-    
+    res.header("Access-Control-Allow-Origin", "https://btb.ltd/");
     try{
     const address = req.params.address.replaceAll("&", " ");
     const result = await getPositionFromAddress(address)
