@@ -41,10 +41,11 @@ const getPositionFromAddress = async (address) => {
 };
 
 const requestPositionFromAddress = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "https://btb.ltd/");
+
     try{
     const address = req.params.address.replaceAll("&", " ");
     const result = await getPositionFromAddress(address)
+    res.setHeader('Access-Control-Allow-Origin', '*');
         if(result === undefined){
             //return res.status(404).json({status:404, data: req.params, message: "Address not converted"})
             sendResponse(res, 404, req.params, "Address not converted");
