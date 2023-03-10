@@ -88,6 +88,7 @@ const Map = () => {
         fetch('https://btb.herokuapp.com/stations')
             .then((res) => {
                 if(!res.ok){
+                    console.log(res);
                     throw new Error('Bad api request');
                 }
                 return res.json();

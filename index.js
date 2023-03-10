@@ -15,7 +15,7 @@ const { handleLogIn,
     } = require("./db/user-handlers");
 const { dirname } = require("node:path");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 // connect to mongoose
 
