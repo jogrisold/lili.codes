@@ -22,6 +22,7 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 mapboxgl.accessToken = 'pk.eyJ1Ijoiam9ncmlzb2xkIiwiYSI6ImNsNnV2Nm1zbTIxemIzanRlYXltNnhjYW0ifQ.wneEVyaaMSgq9bm_gD-Eug';
 
 const App = () => {
+  console.log("App.js");
   return (
 <>
 

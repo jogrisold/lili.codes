@@ -58,6 +58,7 @@ const Map = () => {
     // *****************************************************
     // Initialize the map
     useEffect(() => {
+        console.log("Map init");
         if (mapRef.current) return; // initialize map only once
             mapRef.current = new mapboxgl.Map({
             container: mapContainer.current,
@@ -72,6 +73,7 @@ const Map = () => {
     },[]);
     // Store the new co-ordinates 
     useEffect(() => {
+        console.log("Store co-ordinates");
         if (!mapRef.current) return; // wait for map to initialize
         mapRef.current.on('move', () => {
             setLng(mapRef.current.getCenter().lng.toFixed(4));
@@ -85,10 +87,9 @@ const Map = () => {
 
     // Retrieve stations from backend
     useEffect(() => {
+        console.log("retrieve stations");
         if (bikeDataRetrieved === false){
-        fetch('https://btb.herokuapp.com/stations',{
-            mode: 'no-cors'
-        })
+        fetch('https://btb.herokuapp.com/stations')
             .then((res) => {
                 if(!res.ok){
                     console.log(res);
@@ -111,6 +112,9 @@ const Map = () => {
                         setBikeDataRetrieved(true);
                     });
 
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
             });
         }
     },[])
@@ -119,6 +123,7 @@ const Map = () => {
     // Use effect to render the location and station status data
     // into a single array of objects for more efficient reference
     useEffect(()=>{
+        console.log("render location");
         // Check if the data has been fetched
         if (bikeDataRetrieved && bikeLocations.length > 0 && stationStatus !== null){
             // Initialize an empty array and object
@@ -157,7 +162,8 @@ const Map = () => {
 
     // Customization useEffect to avoid multiple elements 
     useEffect(() => {
-        // console.log('81: customization useeffect start');
+
+        console.log('81: customization useeffect start');
         // wait for map to initialize
         if (mapInit === true) {
             // console.log('84: mapinit true passes');
@@ -181,6 +187,7 @@ const Map = () => {
     // Add bike station markers
     useEffect(()=>{
         // 112: bikestations triggered
+        console.log("bike markers");
         // Check that the station data has been retrieved successfully
         // in the fetch above, and that the map has been rendered
         if (bikeStations.length > 0 && mapInit === true){
@@ -201,7 +208,7 @@ const Map = () => {
                 // Set the popup to default as not visible so that the base map
                 // is more clear and we can retrieve the popup only when the station
                 // is clicked
-                popup.remove();
+                //popup.remove();
                 // Store the markers in an array in order to clear the map 
                 // when a user submits getDirections and it calls removeMarkers();
                 setCurrentMarkers(currentMarkers =>[...currentMarkers, marker])
@@ -239,6 +246,7 @@ const Map = () => {
        
     // Create a function to make a directions request
     const getRoute = async(start, finish, routeName, routeColor, profile, triptype) => {
+        console.log("get route");
         if(mapInit){
             // make a directions request using cycling profile
             // an arbitrary start, will always be the same
@@ -301,6 +309,7 @@ const Map = () => {
     // Define a function to add the route to the map 
     // as a mapbox layer
     const addRouteLayer = (layerOrigin, layerDestination, routeName, routeColor, profile, triptype, addStations) =>{
+        console.log("add route layer");
         if(mapInit){
             if (addStations){
                 let originStationMarker = new mapboxgl.Marker()
