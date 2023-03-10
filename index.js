@@ -15,7 +15,7 @@ const { handleLogIn,
     } = require("./db/user-handlers");
 const { dirname } = require("node:path");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // connect to mongoose
 
@@ -28,7 +28,7 @@ app.use((req, res, next)=> { //allow cross origin requests
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
   console.log("Before setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
 
-  res.setHeader("Access-Control-Allow-Origin", "http://btb.ltd/");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   console.log("After setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
 
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
