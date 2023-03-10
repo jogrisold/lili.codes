@@ -48,7 +48,7 @@ const Profile = () => {
             // Give the server somt time to update
             setTimeout(()=>{
                 // Get the user data from the database
-                fetch(`/api/users/${currentUser._id}`)
+                fetch(`https://btb.herokuapp.com/api/users/${currentUser._id}`)
                 .then((res)=>res.json())
                 .then((data)=>{
                     console.log(data.data);
@@ -77,7 +77,7 @@ const Profile = () => {
             work: profileData.work
           };
         // Send a patch request with the object stringified into JSON format
-        fetch("/api/update-profile", {
+        fetch('https://btb.herokuapp.com//api/update-profile', {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedProfile),

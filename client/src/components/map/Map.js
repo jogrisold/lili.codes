@@ -85,7 +85,7 @@ const Map = () => {
     // Retrieve stations from backend
     useEffect(() => {
         if (bikeDataRetrieved === false){
-        fetch("https://btb.herokuapp.com/stations")
+        fetch('https://btb.herokuapp.com/stations')
             .then((res) => {
                 if(!res.ok){
                     throw new Error('Bad api request');
@@ -97,7 +97,7 @@ const Map = () => {
                 setBikeLocations(json.data);
                 // Set a state to trigger the bikeStations.map useEffect
                 // in order to render the waypoints on the map
-                fetch("/station-status")
+                fetch('https://btb.herokuapp.com/station-status')
                     .then((res) => res.json())
                     .then((json) => {
                         // Store the station data in a state

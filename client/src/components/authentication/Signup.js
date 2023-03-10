@@ -79,7 +79,7 @@ const SignUp = () => {
   // Create a function that will send a .post request containing the user
   // data, to be called only if the user passes the input handling below.
   const addUser = (options) => {
-    fetch("/api/signup", options)
+    fetch('https://btb.herokuapp.com/api/signup', options)
       .then((res) => res.json())
       .then((json) => {
         const {status, message} = json;
