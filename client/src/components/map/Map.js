@@ -3,7 +3,8 @@ import{ useRef, useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 
 // required by mabox
-import mapboxgl from 'mapbox-gl'; 
+//import mapboxgl from '!mapbox-gl'; 
+import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 
 import NavSearch from "./NavSearch";
 import { UserContext } from "../UserContext";
@@ -85,9 +86,10 @@ const Map = () => {
     // Retrieve stations from backend
     useEffect(() => {
         if (bikeDataRetrieved === false){
-        fetch("/stations")
+        fetch('https://btb.herokuapp.com/stations')
             .then((res) => {
                 if(!res.ok){
+                    console.log(res);
                     throw new Error('Bad api request');
                 }
                 return res.json();
@@ -97,7 +99,7 @@ const Map = () => {
                 setBikeLocations(json.data);
                 // Set a state to trigger the bikeStations.map useEffect
                 // in order to render the waypoints on the map
-                fetch("/station-status")
+                fetch('https://btb.herokuapp.com/station-status')
                     .then((res) => res.json())
                     .then((json) => {
                         // Store the station data in a state
