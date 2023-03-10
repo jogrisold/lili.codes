@@ -32,7 +32,7 @@ app.use((req, res, next)=> { //allow cross origin requests
 
 app.use(bp.json());
 app.use(bp.urlencoded({extended:true}));
-app.use('/static', express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Create an endpoint to request bike station data
 app.get("/stations", getGBFS)
@@ -67,8 +67,8 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 // Catch all endpoint
 
 //app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client","build", "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 //    res.status(404).json({
 //    status: 404,
