@@ -85,7 +85,7 @@ const Map = () => {
     // Retrieve stations from backend
     useEffect(() => {
         if (bikeDataRetrieved === false){
-        fetch("/stations")
+        fetch("https://btb.herokuapp.com/stations")
             .then((res) => {
                 if(!res.ok){
                     throw new Error('Bad api request');
