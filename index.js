@@ -86,10 +86,10 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 // Catch all endpoint
 
 
-app.get("*", (req, res) => {
-  sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
-  //res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
-});
+// app.get("*", (req, res) => {
+//   sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
+//   //res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
+// });
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
