@@ -3,6 +3,7 @@ const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
 const path = require('node:path');
+import Error from "./client/src/components/Error";
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -72,7 +73,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 app.use((error, req, res, next) => {
   if (error.status === 404) {
-    res.status(404).render('Error');
+    res.status(404).render(Error);
   } else {
     next(error);
   }

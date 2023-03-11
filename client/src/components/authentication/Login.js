@@ -142,7 +142,7 @@ const Login = () => {
               <FlexRow1>
                 <Input 
                   type={inputType} 
-                  placeholder="########"
+                  placeholder="##########"
                   value={passwordInput} 
                   aria-describedby="password-constraints"
                   required = {true}
@@ -199,7 +199,7 @@ const PopUp= styled.div`
 `;
 const Center= styled.div`
     display: flex;
-    width: 100%;
+    width: inherit;
     justify-content: center;
 `;
 const Wrapper = styled.div`
@@ -214,7 +214,7 @@ const Wrapper = styled.div`
     margin: 20px 0 20px;
   }
   @media (max-width: 700px) {
-    width: 100%
+    width: inherit
   }
 `;
 const H1 = styled.h1`
@@ -237,25 +237,26 @@ const GoHome = styled.div`
 const LoginSection = styled.div`
   display: flex;
   flex-direction: column;
-  // gap: 10px;
-  width: 100%;
+
+  width: inherit;
 
 `;
 
 const LoginForm = styled.form`
-  width: 100%;
+  width: inherit;
 `;
 const Label = styled.label`
     font-size: 1rem;
     color: white;
     text-align: left;
     font-size: 24px;
-    width: 100%;
+    width: inherit;
 `;
 const Input = styled.input`
   font-size: 24px;
   width: 99%;
   height: 40px;
+  margin: 2% 0 2%;
   border-radius: 5px;
   border: none;
   ::placeholder {
@@ -286,7 +287,7 @@ const Button = styled.button`
 `;
 const SignUpSection = styled.div`
   margin: 30px 0;
-  width: 100%;
+  width: inherit;
 `;
 const SignUpLink = styled.a`
   margin-top: 10px;
@@ -311,22 +312,21 @@ const HomepageLink = styled.a`
   text-decoration: none;
 `;
 const NoAccount = styled.p`
-  
   color: white;
   font-size: 16px;
   font-weight: 600;
 `;
 const FlexRow1 = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 const FlexRow2 = styled.div`
-    width: 101%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  width: 101%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 const FlexCol = styled.div`
   display: flex;
@@ -336,15 +336,16 @@ const FlexCol = styled.div`
 `;
 const Text = styled.div`
   margin: 20px 0 20px 0 ;
+`;
+const TogglePassword = styled.button`
+  height: 40px;
+  width: 40px;
 
-`;const TogglePassword = styled.button`
-    height: 40px;
-    width: 40px;
-    border-left: 1px solid var(--color-secondary) !important;
-    background-color: white;
-    padding: 4px 0 0 1px;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    margin: 1px 0 0 -60px;
+  border-left: 1px solid var(--color-secondary) !important;
+  background-color: white;
+  padding: 4px 0 0 1px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  margin: 2.5% 0 0 -15%;
 `;
