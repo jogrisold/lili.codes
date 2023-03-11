@@ -42,7 +42,7 @@ const Settings = ({setIsLoading}) => {
             };
             // Send a patch request to the server with the 
             // Updated settings information
-            fetch('https://btb.herokuapp.com/api/update-settings', {
+            fetch('/api/update-settings', {
                 method: 'PATCH',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(bodyToSend),

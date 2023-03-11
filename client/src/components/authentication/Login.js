@@ -67,7 +67,7 @@ const Login = () => {
       },
     };
     // Post to the server
-    fetch("https://btb.herokuapp.com/api/login", options)
+    fetch("/api/login", options)
       .then((res) => res.json())
       .then((json) => {
         const {status, error} = json;

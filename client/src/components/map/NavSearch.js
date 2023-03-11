@@ -106,7 +106,7 @@ const NavSearch = ({ addRouteLayer, removeMarkers, centerMapOnOrigin}) => {
             const fetchDestination = JSON.stringify(destinationInput.replaceAll(" ", "&"));
             // Fetch the opencage .get endpoint to convert string input into a geoJSON array
 
-            fetch(`https://btb.herokuapp.com/get-position/${fetchOrigin}`)
+            fetch(`/get-position/${fetchOrigin}`)
                 .then((res) => {
                     if(!res.ok){
                         throw new Error('Bad origin request')
@@ -117,7 +117,7 @@ const NavSearch = ({ addRouteLayer, removeMarkers, centerMapOnOrigin}) => {
                     setOrigin(data.data)
                     // Nest the destination fetch in order to setGeoJSONfetch stat
                     // only once both fetches have passed
-                    fetch(`https://btb.herokuapp.com/get-position/${fetchDestination}`)
+                    fetch(`/get-position/${fetchDestination}`)
                     .then((res) => {
                         if(!res.ok){
                             throw new Error('Bad destination request')
@@ -146,7 +146,7 @@ const NavSearch = ({ addRouteLayer, removeMarkers, centerMapOnOrigin}) => {
                     route : route
                 }
                 // Send a patch request to the server
-                fetch('https://btb.herokuapp.com/api/add-route-to-profile', {
+                fetch('/api/add-route-to-profile', {
                 method: 'PATCH',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(addRoute),

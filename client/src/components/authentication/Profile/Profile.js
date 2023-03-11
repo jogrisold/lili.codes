@@ -77,7 +77,7 @@ const Profile = () => {
             work: profileData.work
           };
         // Send a patch request with the object stringified into JSON format
-        fetch('https://btb.herokuapp.com/api/update-profile', {
+        fetch('/api/update-profile', {
             method: 'PATCH',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedProfile),
