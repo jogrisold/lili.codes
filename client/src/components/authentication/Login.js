@@ -133,7 +133,7 @@ const Login = () => {
               <Input
                 autoFocus
                 type="email"
-                placeholder="jojo@jojo.jo"
+                placeholder="info@btb.ltd"
                 value={userEmail}
                 required={true}
                 onChange={(e) => setUserEmail(e.target.value)}
@@ -142,7 +142,7 @@ const Login = () => {
               <FlexRow>
                 <Input 
                   type={inputType} 
-                  placeholder="OMG-itsDONE#WD16"
+                  placeholder="########"
                   value={passwordInput} 
                   aria-describedby="password-constraints"
                   required = {true}
@@ -211,6 +211,9 @@ const Wrapper = styled.div`
   margin: 100px 0 100px 0;
   h1 {
     margin: 20px 0 20px;
+  }
+  @media (max-width: 700px) {
+    width: 100%
   }
 `;
 const H1 = styled.h1`
