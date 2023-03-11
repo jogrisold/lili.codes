@@ -12,7 +12,7 @@ const Error = () => {
                     Please try refreshing the page or 
                     </Space> 
                     <Space>
-                        <Contact href = "#">contact support</Contact>
+                        <Contact href = "mailto: info@btb.ltd">contact support</Contact>
                     </Space> 
                     if the problem persists.
                         

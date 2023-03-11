@@ -139,6 +139,7 @@ const LogIn = styled.button`
     border: 2px solid white;
     border-radius: 50px;
     width: 75px;
+    height: 75px;
     align-items: left;
     text-align: center;
     background-color: var(--color-secondary);
