@@ -78,7 +78,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 app.use((error, req, res, next) => {
   if (error.status === 404) {
     const sheet = new ServerStyleSheet();
-    const jsx = sheet.collectStyles(<Error />);
+    const jsx = sheet.collectStyles(Error);
     const html = renderToString(jsx);
     const styles = sheet.getStyleTags();
     // res.status(404).send(html);
