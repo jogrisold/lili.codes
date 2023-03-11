@@ -3,7 +3,7 @@ const express = require("express");
 const bp = require('body-parser');
 const path = require("node:path");
 const ejs = require('ejs');
-const Error = require('./client/src/components/Error')
+//const Error = require('./client/src/components/Error')
 
 const {sendResponse} = require('./db/utils');
 
