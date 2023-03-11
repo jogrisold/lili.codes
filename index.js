@@ -75,28 +75,28 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 // Catch all endpoint
 
-app.use((error, req, res, next) => {
-  if (error.status === 404) {
-    const sheet = new ServerStyleSheet();
-    const jsx = sheet.collectStyles(Error);
-    const html = renderToString(jsx);
-    const styles = sheet.getStyleTags();
-    // res.status(404).send(html);
-    res.status(404).send(`
-      <html>
-        <head>
-          <title>Error 404</title>
-          ${styles}
-        </head>
-        <body>
-          ${html}
-        </body>
-      </html>
-    `);
-  } else {
-    next(error);
-  }
-});
+// app.use((error, req, res, next) => {
+//   if (error.status === 404) {
+//     const sheet = new ServerStyleSheet();
+//     const jsx = sheet.collectStyles(Error);
+//     const html = renderToString(jsx);
+//     const styles = sheet.getStyleTags();
+//     // res.status(404).send(html);
+//     res.status(404).send(`
+//       <html>
+//         <head>
+//           <title>Error 404</title>
+//           ${styles}
+//         </head>
+//         <body>
+//           ${html}
+//         </body>
+//       </html>
+//     `);
+//   } else {
+//     next(error);
+//   }
+// });
 
 
 app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
