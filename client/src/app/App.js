@@ -32,9 +32,9 @@ const App = () => {
       <Header/>
       <Routes>
         <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" component={Error} />
       </Routes>
     </BrowserRouter>

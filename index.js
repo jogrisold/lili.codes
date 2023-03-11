@@ -1,7 +1,7 @@
 
 const express = require("express");
 const bp = require('body-parser');
-const { path } = require("node:path");
+const path = require("node:path");
 
 const {sendResponse} = require('./db/utils');
 
@@ -56,7 +56,7 @@ app.get("/api/users/:_id", getUserProfile)
 app.patch("/api/update-profile", updateUserProfile)
 
 // Create an endpoint to modify user information when user 
-// submits the preferences form in /profile
+// submits the settings form in /profile
 app.patch("/api/update-settings", updateUserSettings)
 
 // Create an endpoint to add previous routes to user profile
