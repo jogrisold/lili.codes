@@ -237,14 +237,13 @@ const GoHome = styled.div`
 const LoginSection = styled.div`
   display: flex;
   flex-direction: column;
-
   width: inherit;
-
 `;
 
 const LoginForm = styled.form`
   width: inherit;
 `;
+
 const Label = styled.label`
   font-size: 1rem;
   color: white;
@@ -254,7 +253,7 @@ const Label = styled.label`
 `;
 const Input = styled.input`
   font-size: 24px;
-  width: 100%;
+  width: inherit;
   height: 40px;
   margin: 2% 0 2%;
   border-radius: 5px;
@@ -285,10 +284,7 @@ const Button = styled.button`
         background-color: lightgray;
     }
 `;
-const SignUpSection = styled.div`
-  margin: 30px 0;
-  width: inherit;
-`;
+
 const SignUpLink = styled.a`
   margin-top: 10px;
   color: var(--color-quarternary);
@@ -318,7 +314,7 @@ const NoAccount = styled.p`
   font-weight: 600;
 `;
 const FlexRow = styled.div`
-  width: inherit;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -336,7 +332,7 @@ const Text = styled.div`
 const TogglePassword = styled.button`
   height: 40px;
   width: 40px;
-
+  border-radius: 5px;
   border-left: 1px solid var(--color-secondary) !important;
   background-color: white;
   padding: 4px 0 0 1px;

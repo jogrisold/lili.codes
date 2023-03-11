@@ -9,12 +9,12 @@ const Error = () => {
                 <ErrorMsg> Oops! It's a 404! </ErrorMsg>
                 <Instructions>Looks like that page doesn't exist. 
                     <Space>
-                    Please try refreshing the page or 
+                    Please try refreshing the page or,
                     </Space> 
+                    if the problem persists, please:
                     <Space>
                         <Contact href = "mailto: info@btb.ltd">contact support</Contact>
                     </Space> 
-                    if the problem persists.
                         
                     </Instructions>
             </FlexColumn>
@@ -50,7 +50,7 @@ const Instructions = styled.div`
     }
 `;
 const Space = styled.div`
-  margin: 5% 0 5%;
+  margin: 10% 0 1%;
 `;
 const Contact = styled.a`
     font-size: 18px;
