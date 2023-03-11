@@ -95,7 +95,6 @@ export default Header;
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-start; */
     align-items: center;
     background-color: var(--color-secondary);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -136,9 +135,9 @@ const ProfileBtn = styled.button`
 const LogIn = styled.button`
     font-family: var(--font-heading);
     color: white;
-    font-size: 20px;
+    font-size: 100%;
     border: 2px solid white;
-    border-radius:50px;
+    border-radius: 50px;
     height: 75px;
     width: 75px;
     align-items: left;

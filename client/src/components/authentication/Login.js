@@ -139,7 +139,7 @@ const Login = () => {
                 onChange={(e) => setUserEmail(e.target.value)}
               />
               <Label htmlFor="password">Password:</Label>
-              <FlexRow1>
+              <FlexRow>
                 <Input 
                   type={inputType} 
                   placeholder="##########"
@@ -158,17 +158,15 @@ const Login = () => {
                     : <AiOutlineEye size = {25}/>
                   }
                 </TogglePassword>
-                </FlexRow1>
+                </FlexRow>
             </LoginSection>
               <Button type="submit">Continue</Button>
-          </LoginForm>
-          <SignUpSection>
-            <FlexRow2>
+            <FlexRow>
               <NoAccount>Don't have an account? </NoAccount>
               <NoAccount><SignUpLink href="/signup">Sign Up!</SignUpLink></NoAccount>
               
-            </FlexRow2>
-          </SignUpSection>
+            </FlexRow>
+          </LoginForm>
         </>
       }
       </Wrapper>
@@ -254,7 +252,7 @@ const Label = styled.label`
 `;
 const Input = styled.input`
   font-size: 24px;
-  width: 99%;
+  width: 100%;
   height: 40px;
   margin: 2% 0 2%;
   border-radius: 5px;
@@ -312,22 +310,18 @@ const HomepageLink = styled.a`
   text-decoration: none;
 `;
 const NoAccount = styled.p`
+  margin: 5% 0;
   color: white;
   font-size: 16px;
   font-weight: 600;
 `;
-const FlexRow1 = styled.div`
+const FlexRow = styled.div`
   width: inherit;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
-const FlexRow2 = styled.div`
-  width: 101%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
+
 const FlexCol = styled.div`
   display: flex;
   flex-direction: column;
