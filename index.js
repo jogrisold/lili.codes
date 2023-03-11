@@ -3,8 +3,11 @@ const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
 const path = require('node:path');
+const React = require('react');
+
 const Error = require('./client/src/components/Error');
 const {renderToString} = require('react-dom/server');
+const { ServerStyleSheet } = require ('styled-components');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -74,9 +77,22 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 app.use((error, req, res, next) => {
   if (error.status === 404) {
-    const jsx = React.createElement(Error);
+    const sheet = new ServerStyleSheet();
+    const jsx = sheet.collectStyles(<Error />);
     const html = renderToString(jsx);
-    res.status(404).send(html);
+    const styles = sheet.getStyleTags();
+    // res.status(404).send(html);
+    res.status(404).send(`
+      <html>
+        <head>
+          <title>Error 404</title>
+          ${styles}
+        </head>
+        <body>
+          ${html}
+        </body>
+      </html>
+    `);
   } else {
     next(error);
   }
