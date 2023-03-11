@@ -3,7 +3,7 @@ const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
 const path = require('node:path');
-import Error from "./client/src/components/Error";
+const Error = require('./client/src/components/Error')
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
