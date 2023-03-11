@@ -251,6 +251,7 @@ const Input = styled.input`
 
 `;
 const Button = styled.button`
+  width: 100%s
   font-family: var(--font-heading);
   font-weight: bold;
   color: white;
@@ -278,6 +279,7 @@ const LoginSection = styled.div`
 `;
 const SignUpSection = styled.div`
   margin: 30px 0;
+  width: 100%
 `;
 const SignUpLink = styled.a`
   margin-top: 10px;
