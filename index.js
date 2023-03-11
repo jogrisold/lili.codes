@@ -3,7 +3,8 @@ const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
 const path = require('node:path');
-const Error = require('./client/src/components/Error')
+const Error = require('./client/src/components/Error');
+const {renderToString} = require('react-dom/server');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -73,7 +74,9 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 app.use((error, req, res, next) => {
   if (error.status === 404) {
-    res.status(404).render(Error);
+    const jsx = React.createElement(Error);
+    const html = renderToString(jsx);
+    res.status(404).send(html);
   } else {
     next(error);
   }
