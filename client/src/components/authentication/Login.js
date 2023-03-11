@@ -273,11 +273,11 @@ const Button = styled.button`
 const LoginSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  // gap: 10px;
   width: 100%;
 `;
 const SignUpSection = styled.div`
-  margin: 30px 0 10px 0;
+  margin: 30px 0;
 `;
 const SignUpLink = styled.a`
   margin-top: 10px;
