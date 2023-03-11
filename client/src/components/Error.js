@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { Icon } from '@iconify/react';
+//import styled from "styled-components";
+//import { Icon } from '@iconify/react';
 
 const Error = () => {
     return(
         <>
             <FlexColumn>
-                <Icon icon="noto:bomb" style={{ fontSize: '70px' }}/>
+                {/* <Icon icon="noto:bomb" style={{ fontSize: '70px' }}/> */}
                 <ErrorMsg> It's an error! </ErrorMsg>
                 <Instructions>Please try refreshing the page or <Contact href = "#">contact support</Contact> if the problem persists.</Instructions>
             </FlexColumn>
