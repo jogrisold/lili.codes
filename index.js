@@ -3,11 +3,11 @@ const express = require("express");
 const bp = require('body-parser');
 const {sendResponse} = require('./db/utils');
 const path = require('node:path');
-const React = require('react');
 
-const Error = require('./client/src/components/Error');
-const {renderToString} = require('react-dom/server');
-const { ServerStyleSheet } = require ('styled-components');
+// const React = require('react');
+// const Error = require('./client/src/components/Error');
+// const {renderToString} = require('react-dom/server');
+// const { ServerStyleSheet } = require ('styled-components');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
