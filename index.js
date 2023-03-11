@@ -1,13 +1,9 @@
 
 const express = require("express");
 const bp = require('body-parser');
-const {sendResponse} = require('./db/utils');
-const path = require('node:path');
+const { __dirname, path } = require("node:path");
 
-// const React = require('react');
-// const Error = require('./client/src/components/Error');
-// const {renderToString} = require('react-dom/server');
-// const { ServerStyleSheet } = require ('styled-components');
+const {sendResponse} = require('./db/utils');
 
 const { getGBFS, getStationStatus } = require("./db/gbfs-handlers");
 const { requestPositionFromAddress } = require("./db/location-handlers");
@@ -18,11 +14,8 @@ const { handleLogIn,
         updateUserRoutes, 
         updateUserSettings
     } = require("./db/user-handlers");
-const { dirname } = require("node:path");
 
 const PORT = process.env.PORT || 5001;
-
-// connect to mongoose
 
 const app = express();
 
@@ -71,43 +64,11 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 // Catch all endpoint
 
-// app.use((error, req, res, next) => {
-//   if (error.status === 404) {
-//     const sheet = new ServerStyleSheet();
-//     const jsx = sheet.collectStyles(Error);
-//     const html = renderToString(jsx);
-//     const styles = sheet.getStyleTags();
-//     // res.status(404).send(html);
-//     res.status(404).send(`
-//       <html>
-//         <head>
-//           <title>Error 404</title>
-//           ${styles}
-//         </head>
-//         <body>
-//           ${html}
-//         </body>
-//       </html>
-//     `);
-//   } else {
-//     next(error);
-//   }
-// });
-
 
 app.get("*", (req, res) => {
-  sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
+  //sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
   res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
-
 })
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
-//    res.status(404).json({
-//    status: 404,
-//     message: "Server endpoint does not exist",
-//     });
-// })
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
