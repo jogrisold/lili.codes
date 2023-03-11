@@ -44,13 +44,14 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(function(req, res, next) {
-  res.status(404);
-  res.render('Error', {
-    title: 'Page not found',
-    message: 'Sorry, the requested page could not be found.'
-  });
-});
+// Custom Error page
+// app.use(function(req, res, next) {
+//   res.status(404);
+//   res.render('Error', {
+//     title: 'Page not found',
+//     message: 'Sorry, the requested page could not be found.'
+//   });
+// });
 
 // Create an endpoint to request bike station data
 app.get("/stations", getGBFS)
@@ -86,8 +87,8 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 
 app.get("*", (req, res) => {
-  //sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
-  res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
+  //res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
 });
   
 app.listen(PORT, () => {
