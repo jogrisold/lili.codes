@@ -135,10 +135,9 @@ const ProfileBtn = styled.button`
 const LogIn = styled.button`
     font-family: var(--font-heading);
     color: white;
-    font-size: 150%;
+    font-size: 100%;
     border: 2px solid white;
     border-radius: 50px;
-    height: 75px;
     width: 75px;
     align-items: left;
     text-align: center;

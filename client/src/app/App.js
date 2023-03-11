@@ -13,6 +13,8 @@ import Login from "../components/authentication/Login";
 import Signup from "../components/authentication/Signup";
 import Header from '../components/Header';
 import Profile from "../components/authentication/Profile/Profile";
+import Error from "../components/Error";
+
 
 // required by mabox
 //import mapboxgl from '!mapbox-gl' 
@@ -35,7 +37,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" component={Error} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   </Wrapper>

@@ -128,6 +128,8 @@ const Login = () => {
       : <>
           <H1>Log In</H1>
           <LoginForm onSubmit={handleSubmit}>
+            <LoginSection>
+
               <Label htmlFor="email">Email:</Label>
               <Input
                 autoFocus
@@ -137,6 +139,7 @@ const Login = () => {
                 required={true}
                 onChange={(e) => setUserEmail(e.target.value)}
               />
+              
               <Label htmlFor="password">Password:</Label>
               <FlexRow>
                 <Input 
@@ -157,12 +160,14 @@ const Login = () => {
                     : <AiOutlineEye size = {25}/>
                   }
                 </TogglePassword>
-                </FlexRow>
+              </FlexRow>
+
               <Button type="submit">Continue</Button>
-            <FlexRow>
-              <NoAccount>Don't have an account? </NoAccount>
-              <NoAccount><SignUpLink href="/signup">Sign Up!</SignUpLink></NoAccount>
-            </FlexRow>
+              <FlexRow>
+                <NoAccount>Don't have an account? </NoAccount>
+                <NoAccount><SignUpLink href="/signup">Sign Up!</SignUpLink></NoAccount>
+              </FlexRow>
+            </LoginSection>
           </LoginForm>
         </>
       }
@@ -193,9 +198,9 @@ const PopUp= styled.div`
     padding: 10px 20px;
 `;
 const Center= styled.div`
-  display: flex;
-  width: inherit;
-  justify-content: center;
+    display: flex;
+    width: inherit;
+    justify-content: center;
 `;
 const Wrapper = styled.div`
   border: none;
@@ -241,11 +246,11 @@ const LoginForm = styled.form`
   width: inherit;
 `;
 const Label = styled.label`
-    font-size: 1rem;
-    color: white;
-    text-align: left;
-    font-size: 24px;
-    width: inherit;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  font-size: 24px;
+  width: inherit;
 `;
 const Input = styled.input`
   font-size: 24px;
