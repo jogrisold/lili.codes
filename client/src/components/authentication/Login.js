@@ -128,7 +128,6 @@ const Login = () => {
       : <>
           <H1>Log In</H1>
           <LoginForm onSubmit={handleSubmit}>
-            <LoginSection>
               <Label htmlFor="email">Email:</Label>
               <Input
                 autoFocus
@@ -159,12 +158,10 @@ const Login = () => {
                   }
                 </TogglePassword>
                 </FlexRow>
-            </LoginSection>
               <Button type="submit">Continue</Button>
             <FlexRow>
               <NoAccount>Don't have an account? </NoAccount>
               <NoAccount><SignUpLink href="/signup">Sign Up!</SignUpLink></NoAccount>
-              
             </FlexRow>
           </LoginForm>
         </>
@@ -263,7 +260,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  width: 101%;
+  width: 100%;
   font-family: var(--font-heading);
   font-weight: bold;
   color: white;

@@ -29,11 +29,7 @@ const app = express();
 /** Setting up server to accept cross-origin browser requests */
 app.use((req, res, next)=> { //allow cross origin requests
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-  console.log("Before setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
-
   res.setHeader("Access-Control-Allow-Origin", "*");
-  console.log("After setting Access-Control-Allow-Origin header:", res.getHeaders()); // Debugging statement
-
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", true);
   next();
@@ -99,7 +95,11 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 // });
 
 
-app.get("*", (req, res) => sendResponse(res, 404, "no data", message = "Server endpoint does not exist."))
+app.get("*", (req, res) => {
+  sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
+  res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
+
+})
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 // });

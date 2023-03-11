@@ -35,6 +35,7 @@ const App = () => {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/profile" element={<Profile />} />
+        <Route path="*" component={Error} />
       </Routes>
     </BrowserRouter>
   </Wrapper>
