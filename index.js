@@ -1,7 +1,7 @@
 
 const express = require("express");
 const bp = require('body-parser');
-const { __dirname, path } = require("node:path");
+const { path } = require("node:path");
 
 const {sendResponse} = require('./db/utils');
 

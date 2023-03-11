@@ -193,9 +193,9 @@ const PopUp= styled.div`
     padding: 10px 20px;
 `;
 const Center= styled.div`
-    display: flex;
-    width: inherit;
-    justify-content: center;
+  display: flex;
+  width: inherit;
+  justify-content: center;
 `;
 const Wrapper = styled.div`
   border: none;
