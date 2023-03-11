@@ -139,7 +139,7 @@ const Login = () => {
                 onChange={(e) => setUserEmail(e.target.value)}
               />
               <Label htmlFor="password">Password:</Label>
-              <FlexRow>
+              <FlexRow1>
                 <Input 
                   type={inputType} 
                   placeholder="########"
@@ -158,16 +158,16 @@ const Login = () => {
                     : <AiOutlineEye size = {25}/>
                   }
                 </TogglePassword>
-                </FlexRow>
-              <Button type="submit">Continue</Button>
+                </FlexRow1>
             </LoginSection>
+              <Button type="submit">Continue</Button>
           </LoginForm>
           <SignUpSection>
-            <FlexRow>
+            <FlexRow2>
               <NoAccount>Don't have an account? </NoAccount>
               <NoAccount><SignUpLink href="/signup">Sign Up!</SignUpLink></NoAccount>
               
-            </FlexRow>
+            </FlexRow2>
           </SignUpSection>
         </>
       }
@@ -207,8 +207,9 @@ const Wrapper = styled.div`
   border-radius: 20px;
   width: 450px;
   background-color: var(--color-secondary);
-  padding: 20px 50px 20px 50px;
+  padding: 0px 50px 0px 50px;
   margin: 100px 0 100px 0;
+  
   h1 {
     margin: 20px 0 20px;
   }
@@ -221,6 +222,7 @@ const H1 = styled.h1`
     padding: 0 0 30px 0;
     font-size: 36px;
     color:white;
+    
 `;
 const H2 = styled.h1`
     text-align: center;
@@ -232,7 +234,16 @@ const GoHome = styled.div`
     padding: 30px 0 0 0;
     font-size: 36px;
 `;
+const LoginSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  // gap: 10px;
+  width: 100%;
+
+`;
+
 const LoginForm = styled.form`
+  width: 100%;
 `;
 const Label = styled.label`
     font-size: 1rem;
@@ -243,18 +254,17 @@ const Label = styled.label`
 `;
 const Input = styled.input`
   font-size: 24px;
-  width: 100%;
+  width: 99%;
   height: 40px;
   border-radius: 5px;
   border: none;
-  margin: 0 0 10px 0;
   ::placeholder {
     color: var(--color-secondary);
   }
-
 `;
+
 const Button = styled.button`
-  width: 100%s
+  width: 101%;
   font-family: var(--font-heading);
   font-weight: bold;
   color: white;
@@ -262,7 +272,7 @@ const Button = styled.button`
   font-size: 20px;
   border-radius: 5px;
   border: none;
-  padding: 10px;
+  padding: 10px 0 10px 0;
   margin-top: 10px;
   cursor: pointer;
     transition: ease-in-out 100ms;
@@ -274,15 +284,9 @@ const Button = styled.button`
         background-color: lightgray;
     }
 `;
-const LoginSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  // gap: 10px;
-  width: 100%;
-`;
 const SignUpSection = styled.div`
   margin: 30px 0;
-  width: 100%
+  width: 100%;
 `;
 const SignUpLink = styled.a`
   margin-top: 10px;
@@ -312,8 +316,14 @@ const NoAccount = styled.p`
   font-size: 16px;
   font-weight: 600;
 `;
-const FlexRow = styled.div`
+const FlexRow1 = styled.div`
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+const FlexRow2 = styled.div`
+    width: 101%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
