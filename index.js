@@ -2,6 +2,8 @@
 const express = require("express");
 const bp = require('body-parser');
 const path = require("node:path");
+const ejs = require('ejs');
+const Error = require('./client/src/components/Error')
 
 const {sendResponse} = require('./db/utils');
 
@@ -22,7 +24,11 @@ const app = express();
 /** Setting up server to accept cross-origin browser requests */
 app.use((req, res, next)=> { //allow cross origin requests
   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  
+  // !!! Replace with https://btb.ltd once certificate is obtained
+  res.setHeader("Access-Control-Allow-Origin", "*"); 
+  // !!! Otherwise this is not secure
+
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Credentials", true);
   next();
@@ -31,6 +37,20 @@ app.use((req, res, next)=> { //allow cross origin requests
 app.use(bp.json());
 app.use(bp.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'client/build')));
+
+
+
+// Configure view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(function(req, res, next) {
+  res.status(404);
+  res.render('Error', {
+    title: 'Page not found',
+    message: 'Sorry, the requested page could not be found.'
+  });
+});
 
 // Create an endpoint to request bike station data
 app.get("/stations", getGBFS)
@@ -68,7 +88,7 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 app.get("*", (req, res) => {
   //sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
   res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
+});
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

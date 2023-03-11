@@ -7,15 +7,38 @@ const OriginTypeAhead = () => {
 
     const {currentUser, originInput, setOriginInput} = useContext(UserContext);
     const [inputValue, setInputValue] = useState("");
+    const [suggestedAddresses, setSuggestedAddresses] = useState([]);
+
     const [searchNotSelected, setSearchNotSelected] = useState(true);
 
+    const API_KEY = 'AIzaSyDWCRDZYaxM2kVv5BdSWQEFxyCStNsSwu4';
     // Return results that match what the user types
     const previousSearches = currentUser.previous_searches.filter(search => {
         return search.origin.toLowerCase().includes(inputValue.toLowerCase())
     })
+    // Google maps geocoding results
+    const handleInputChange = (event) => {
+        console.log(event);
+        const input = event.target;
+        const inputValue = input.value;
+        console.log(inputValue);
+        // Make a fetch request to the Google Geocoding API
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${inputValue}&key=${API_KEY}`)
+          .then(response => response.json())
+          .then(data => {
+            // Extract the list of suggested addresses from the response
+            const suggestedAddresses = data.predictions.map(prediction => prediction.description);
+            setSuggestedAddresses(suggestedAddresses);
+          })
+          .catch(error => console.error(error));
+          
+        setInputValue(inputValue);
+      }
+
     // When a user clicks on a suggestion, navigate to the item details page and clear the input field
     const handleSuggestionClick = (origin) => {
         setInputValue(origin);
+
         // Clear the list of searches
         setSearchNotSelected(false);
     } 
@@ -27,7 +50,7 @@ const OriginTypeAhead = () => {
                 <SearchBar 
                     type="text" 
                     value={inputValue} 
-                    onChange={(e) => {setInputValue(e.target.value); setOriginInput(e.target.value); console.log(originInput)}} 
+                    onChange={(e) => {handleInputChange(e.target.value);setInputValue(e.target.value); setOriginInput(e.target.value); }} 
                 />
                 <ClearBtn type = "button" onClick={()=> {setInputValue("")}}>Clear</ClearBtn>
             </FlexRow>
@@ -51,6 +74,15 @@ const OriginTypeAhead = () => {
                     )
                 })
                 }
+                 {suggestedAddresses.length > 0 && (
+                <ul>
+                    {suggestedAddresses.map(address => (
+                    <li key={address} onClick={() => handleSuggestionClick(address)}>
+                        {address}
+                    </li>
+                    ))}
+                </ul>
+                )}
             </SearchList> 
         }
         </FlexCol>
