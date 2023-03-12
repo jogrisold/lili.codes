@@ -11,6 +11,10 @@ import { UserContext } from "../UserContext";
 // Images for user password visibility button
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
+// For server routing
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
 // Component to be used in /login for existing users
 const Login = () => {
   //**************************************************************** */
