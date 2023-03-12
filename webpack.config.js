@@ -1,6 +1,5 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-// const __dirname = require('__dirname');
 
 module.exports = {
   mode: 'development',
@@ -25,4 +24,8 @@ module.exports = {
     ],
   },
   externals: [nodeExternals()],
+  devServer: {
+    port: 5001,
+    // other devServer configurations...
+  }
 };
