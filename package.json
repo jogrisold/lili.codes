@@ -5,25 +5,50 @@
   "repository": "https://github.com/jogrisold/btb-gpt.git",
   "license": "MIT",
   "dependencies": {
+    "@babel/node": "^7.0.0",
     "bcrypt": "^5.1.0",
     "build": "^0.1.4",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
+    "eslint": "^8.36.0",
+    "eslint-cli": "^1.1.1",
+    "eslint-loader": "^4.0.2",
     "express": "^4.18.2",
+    "globally": "^0.0.0",
+    "js-yaml": "^4.1.0",
     "mongodb": "^5.1.0",
+    "nodemon": "^2.0.21",
     "opencage-api-client": "^1.0.1",
     "password-generator": "^2.3.2",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "styled-components": "^5.3.8"
+    "styled-components": "^5.3.8",
+    "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "build": "cd client && yarn install && yarn build",
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
     "heroku-postbuild": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.3",
+    "react-hot-loader": "^4.13.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   }
 }
