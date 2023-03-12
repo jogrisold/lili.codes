@@ -47,7 +47,7 @@ import ReactDOMServer from  'react-dom/server';
 //   updateUserSettings } = require( "../db/user-handlers.js");
 
 // Components
-import Login from  './authentication/Login.js';
+import Login from  './components/authentication/Login.js';
 
 // Handlers
 import { getGBFS, getStationStatus } from  "./db/gbfs-handlers.js";
