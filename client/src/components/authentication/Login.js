@@ -135,9 +135,7 @@ const Login = () => {
             <LoginSection>
 
               <Label htmlFor="email">Email:</Label>
-              <FlexRow>
-
-              <Input1
+              <Input
                 autoFocus
                 type="email"
                 placeholder="info@btb.ltd"
@@ -145,11 +143,10 @@ const Login = () => {
                 required={true}
                 onChange={(e) => setUserEmail(e.target.value)}
               />
-              </FlexRow>
               
               <Label htmlFor="password">Password:</Label>
               <FlexRow>
-                <Input2
+                <Input 
                   type={inputType} 
                   placeholder="##########"
                   value={passwordInput} 
@@ -257,24 +254,12 @@ const Label = styled.label`
   text-align: left;
   font-size: 24px;
   width: inherit;
-  margin: 4% 0 2%;
 `;
-const Input1 = styled.input`
+const Input = styled.input`
   font-size: 24px;
   width: inherit;
   height: 40px;
-
-  border-radius: 5px;
-  border: none;
-  ::placeholder {
-    color: var(--color-secondary);
-  }
-`;
-const Input2 = styled.input`
-  font-size: 24px;
-  width: inherit;
-  height: 40px;
-  margin: 0 -14% 0 0 ;
+  margin: 2% 0 2%;
   border-radius: 5px;
   border: none;
   ::placeholder {
@@ -333,8 +318,7 @@ const NoAccount = styled.p`
   font-weight: 600;
 `;
 const FlexRow = styled.div`
-  width: 100%;
-  margin: 2% 0 2%;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -350,14 +334,14 @@ const Text = styled.div`
   margin: 20px 0 20px 0 ;
 `;
 const TogglePassword = styled.button`
-  height: 80%;
-  width: 12%;
+  height: 40px;
+  width: 40px;
   border-radius: 5px;
   border-left: 1px solid var(--color-secondary) !important;
   background-color: white;
-  padding: 2.2% ;
+  padding: 4px 0 0 1px;
   border-top: none;
   border-right: none;
   border-bottom: none;
-
+  margin: 2.5% 0 0 -15%;
 `;

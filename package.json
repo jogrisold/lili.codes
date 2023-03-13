@@ -17,6 +17,7 @@
     "globally": "^0.0.0",
     "js-yaml": "^4.1.0",
     "mongodb": "^5.1.0",
+    "mongoose": "^7.0.1",
     "nodemon": "^2.0.21",
     "opencage-api-client": "^1.0.1",
     "password-generator": "^2.3.2",
@@ -29,14 +30,15 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "styled-components": "^5.3.8",
+    "webpack-dev-middleware": "^6.0.1",
+    "webpack-hot-middleware": "^2.25.3",
     "webpack-node-externals": "^3.0.0",
     "webpack-shell-plugin-next": "^2.3.1",
     "why": "^0.6.2"
   },
   "scripts": {
-    "heroku-postbuild": "yarn build",
-    "build": "webpack --mode production",
-    "start": "yarn add -D webpack-cli && webpack serve --mode development --open",
+    "start": "yarn && yarn add -D webpack-cli && webpack --config webpack.config.js --progress --verbose && && webpack serve --mode development --open && node index.js",
+    "dev": "webpack --config webpack.config.js",
     "client": "cd client && yarn && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

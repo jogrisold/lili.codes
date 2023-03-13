@@ -45,6 +45,7 @@ const requestStationStatus = () => {
 }
 
 const requestGBFS = () => {
+  console.log("request GBFS")
   return new Promise (resolve => {
     request("https://gbfs.velobixi.com/gbfs/en/station_information.json")
       .then((response) => {
@@ -76,6 +77,7 @@ const requestGBFS = () => {
 }
 
 const getGBFS = async (req, res) => {
+  console.log("get GBFS")
   try {
     const response = await requestGBFS();
     console.log(response);

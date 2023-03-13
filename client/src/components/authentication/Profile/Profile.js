@@ -48,7 +48,7 @@ const Profile = () => {
             // Give the server somt time to update
             setTimeout(()=>{
                 // Get the user data from the database
-                fetch(`https://btb.herokuapp.com/api/users/${currentUser._id}`)
+                fetch(`/api/users/${currentUser._id}`)
                 .then((res)=>res.json())
                 .then((data)=>{
                     console.log(data.data);

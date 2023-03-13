@@ -1,7 +1,12 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const PORT = process.env.PORT || 5001;
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+
+// import path from 'path';
+// import nodeExternals from 'webpack-node-externals';
+// import WebpackShellPluginNext from 'webpack-shell-plugin-next';
+
+const PORT = process.env.PORT || 5000;
 
 
 module.exports = {
@@ -28,6 +33,9 @@ module.exports = {
   },
   externals: [nodeExternals()],
   devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     port: PORT,
     // other devServer configurations...
   },
