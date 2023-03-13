@@ -1,6 +1,8 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const PORT = process.env.PORT || 5001;
+const WebpackShellPluginNext = require('webpack-shell-plugin-next');
+
 
 module.exports = {
   mode: 'development',
@@ -28,5 +30,12 @@ module.exports = {
   devServer: {
     port: PORT,
     // other devServer configurations...
-  }
+  },
+  plugins: [
+    new WebpackShellPluginNext({
+      onBuildEnd: {
+        scripts: ['echo "Pluginsplug"', 'echo Plugins 2']
+      }
+    })
+  ]
 };

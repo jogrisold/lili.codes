@@ -30,12 +30,14 @@
     "request-promise": "^4.2.6",
     "styled-components": "^5.3.8",
     "webpack-node-externals": "^3.0.0",
+    "webpack-shell-plugin-next": "^2.3.1",
     "why": "^0.6.2"
   },
   "scripts": {
-    "start": "yarn add -D webpack-cli && webpack serve --mode development --open",
-    "build": "webpack --mode production",
     "heroku-postbuild": "yarn build",
+    "build": "webpack --mode production",
+    "start": "yarn add -D webpack-cli && webpack serve --mode development --open",
+    "client": "cd client && yarn && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
