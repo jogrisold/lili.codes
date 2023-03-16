@@ -1,7 +1,7 @@
 
 const express = require("express");
-// import express from "express";
 
+// Webpack server
 require('@babel/register')({
   extensions: ['.js', '.jsx'],
   presets: ['@babel/preset-react']
@@ -15,7 +15,6 @@ const compiler = Webpack(webpackConfig);
 const devServerOptions = { ...webpackConfig.devServer, open: true };
 const server = new WebpackDevServer(devServerOptions, compiler);
 
-
 const runServer = async () => {
   console.log('Starting server...');
   await server.start();
@@ -23,48 +22,15 @@ const runServer = async () => {
 
 runServer();
 
-// import register from '@babel/register';
 
-// register({
-//   extensions: ['.js', '.jsx'],
-//   presets: ['@babel/preset-react']
-//   });
 
+// Base dependencies
 const bp = require( 'body-parser');
 const path = require("node:path");
-// const __dirname = path.resolve();
+
 const ejs = require('ejs');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-// const Login = require( './client/src/components/authentication/Login.js');
-//const Error = require( './client/src/components/Error';
-
-// Base dependencies
-// import bp from  'body-parser';
-// import path from  "node:path";
-// const __dirname = path.resolve();
-// import ejs from  'ejs';
-// import process from 'process';
-// import React from  'react';
-// import ReactDOMServer from  'react-dom/server';
-
-// import __dirname from '__dirname'
-// import {sendResponse} from './db/utils';
-//import Error from  './client/src/components/Error';
-
-
-// const { getGBFS, getStationStatus } = require( "../db/gbfs-handlers.js");
-// const { requestPositionFromAddress } = require( "../db/location-handlers.js");
-
-// const { handleLogIn, 
-//   handleSignUp, 
-//   updateUserProfile, 
-//   getUserProfile, 
-//   updateUserRoutes, 
-//   updateUserSettings } = require( "../db/user-handlers.js");
-
-// Components
-// import Login from  './client/src/components/authentication/Login.js';
 
 // Handlers
 const { getGBFS, getStationStatus } =require(  "./db/gbfs-handlers.js");
@@ -77,21 +43,9 @@ const { handleLogIn,
         updateUserSettings
     } =require( "./db/user-handlers");
 
-// import { getGBFS, getStationStatus } from  "./db/gbfs-handlers.js";
-// import { requestPositionFromAddress } from  "./db/location-handlers.js";
-// import { handleLogIn, 
-//         handleSignUp, 
-//         updateUserProfile, 
-//         getUserProfile, 
-//         updateUserRoutes, 
-//         updateUserSettings
-//     } from './db/user-handlers.js';
-
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-
-
 
 /** Setting up server to accept cross-origin browser requests */
 app.use((req, res, next)=> { //allow cross origin requests
@@ -106,15 +60,9 @@ app.use((req, res, next)=> { //allow cross origin requests
   next();
 });
 
-
-
 app.use(bp.json());
 app.use(bp.urlencoded({extended:true}));
 app.use(express.static(path.join(process.cwd(), 'client/build')));
-
-
-
-
 
 // Configure view engine
 app.set('view engine', ejs);
@@ -158,31 +106,9 @@ app.patch("/api/add-route-to-profile", updateUserRoutes)
 
 // Catch all endpoint
 
-// Webpack endpoints
-// app.get('/login', (req, res) => {
-//   const loginPage = ReactDOMServer.renderToString(<Login />);
-//   res.send(`
-//     <!DOCTYPE html>
-//     <html lang="en">
-//       <head>
-//         <meta charset="UTF-8">
-//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//         <title>BTB GPT Login</title>
-//         <link rel="stylesheet" href="/static/css/main.8b7d59dd.chunk.css">
-//       </head>
-//       <body>
-//         <div id="root">${loginPage}</div>
-//         <script src="/static/js/main.1cf17333.chunk.js"></script>
-//       </body>
-//     </html>
-//   `);
-// });
-
-// app.get("*", (req, res) => {
-//   sendResponse(res, 404, "no data", message = "Server endpoint does not exist.");
-//   //res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
-// });
+app.get("*", (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'client/build', 'index.html'))
+});
   
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
